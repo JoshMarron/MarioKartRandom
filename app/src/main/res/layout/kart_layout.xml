@@ -104,26 +104,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/speed_head"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/random_kart_top_row_style"
                 android:text="@string/speed_abbreviated"/>
             <TextView
+                android:id="@+id/acceleration_head"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/random_kart_top_row_style"
                 android:text="@string/acceleration_abbreviated"/>
             <TextView
+                android:id="@+id/weight_head"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/random_kart_top_row_style"
                 android:text="@string/weight_abbreviated"/>
             <TextView
+                android:id="@+id/handling_head"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/random_kart_top_row_style"
                 android:text="@string/handling_abbreviated"/>
             <TextView
+                android:id="@+id/grip_head"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 style="@style/random_kart_top_row_style"

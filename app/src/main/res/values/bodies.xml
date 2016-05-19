@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bodies_array">
+        <item>Standard Kart</item>
+        <item>Pipe Frame</item>
+        <item>Mach 8</item>
+        <item>bloop</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+        <item>gkgk</item>
+    </string-array>
+</resources>

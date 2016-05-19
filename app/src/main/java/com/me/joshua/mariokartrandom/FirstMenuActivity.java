@@ -36,6 +36,12 @@ public class FirstMenuActivity extends AppCompatActivity {
         FirstMenuActivity.this.startActivity(intent);
     }
 
+    public void openBuilderMode(View view)
+    {
+        Intent intent = new Intent(this, KartBuilderActivity.class);
+        FirstMenuActivity.this.startActivity(intent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

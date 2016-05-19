@@ -1,5 +1,8 @@
 package com.me.joshua.mariokartrandom;
 
+import android.app.Dialog;
+import android.content.res.Configuration;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,10 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -27,6 +34,9 @@ public class RandomSelectedActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         Bundle extras = getIntent().getExtras();
         numPlayers = extras.getInt("players");
         mainLayout = (LinearLayout) findViewById(R.id.linear_in_scroll_selected);
@@ -35,17 +45,32 @@ public class RandomSelectedActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.random_selected_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if (id == R.id.refresh)
+        {
+            this.reRandomise();
+            mainLayout.removeAllViews();
+            this.createLayout();
+        }
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void createLayout()
     {
-        /*View subLayout = LayoutInflater.from(this).inflate(R.layout.kart_layout, mainLayout, false);
-        View subLayout2 = LayoutInflater.from(this).inflate(R.layout.kart_layout, mainLayout, false);
-
-        TextView playerName = (TextView) subLayout.findViewById(R.id.player_name);
-        playerName.setText("Player 21");
-
-        mainLayout.addView(subLayout);
-        mainLayout.addView(subLayout2);*/
-
         for (int i = 1; i <= numPlayers; i++)
         {
             View subLayout = LayoutInflater.from(this).inflate(R.layout.kart_layout, mainLayout, false);
@@ -55,9 +80,10 @@ public class RandomSelectedActivity extends AppCompatActivity {
             name.setSpan(new UnderlineSpan(), 0, name.length(), 0);
             playerName.setText(name);
 
-            int bodyIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_BODIES + 1);
-            int wheelsIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_WHEELS + 1);
-            int gliderIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_GLIDERS + 1);
+            //Retrieve the indexes of the chosen parts
+            int bodyIndex = RandomKartActivity.partIndexes[i * 3];
+            int wheelsIndex = RandomKartActivity.partIndexes[i * 5];
+            int gliderIndex = RandomKartActivity.partIndexes[i * 7];
 
             Kart8Vehicle randVehicle = PartsData.buildVehicle(bodyIndex, wheelsIndex, gliderIndex);
 
@@ -90,5 +116,43 @@ public class RandomSelectedActivity extends AppCompatActivity {
         weight.setText("" + stats.get(2));
         handling.setText("" + stats.get(3));
         traction.setText("" + stats.get(4));
+
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            TextView speedHead = (TextView) subLayout.findViewById(R.id.speed_head);
+            TextView accelerationHead = (TextView) subLayout.findViewById(R.id.acceleration_head);
+            TextView weightHead = (TextView) subLayout.findViewById(R.id.weight_head);
+            TextView handlingHead = (TextView) subLayout.findViewById(R.id.handling_head);
+            TextView gripHead = (TextView) subLayout.findViewById(R.id.grip_head);
+
+            speedHead.setText(R.string.speed);
+            accelerationHead.setText(R.string.acceleration);
+            weightHead.setText(R.string.weight);
+            handlingHead.setText(R.string.handling);
+            gripHead.setText(R.string.grip);
+
+            speedHead.setTextSize(25);
+            accelerationHead.setTextSize(25);
+            weightHead.setTextSize(25);
+            handlingHead.setTextSize(25);
+            gripHead.setTextSize(25);
+        }
     }
+
+    private void reRandomise()
+    {
+        for (int i = 1; i <= numPlayers; i++)
+        {
+            int bodyIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_BODIES + 1);
+            int wheelsIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_WHEELS + 1);
+            int gliderIndex = FirstMenuActivity.rand.nextInt(FirstMenuActivity.NUM_GLIDERS + 1);
+
+            //Retrieves the selected parts using the same method as in RandomKartActivity
+            RandomKartActivity.partIndexes[i * 3] = bodyIndex;
+            RandomKartActivity.partIndexes[i * 5] = wheelsIndex;
+            RandomKartActivity.partIndexes[i * 7] = gliderIndex;
+        }
+    }
+
+
 }

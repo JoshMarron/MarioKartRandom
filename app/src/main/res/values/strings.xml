@@ -6,7 +6,7 @@
     <string name="num_players_2">2 Players</string>
     <string name="num_players_3">3 Players</string>
     <string name="num_players_4">4 Players</string>
-    <string name="title_activity_first_menu">FirstMenuActivity</string>
+    <string name="title_activity_first_menu" translatable="false">FirstMenuActivity</string>
     <string name="title_activity_random_kart">Random Kart Generator</string>
     <string name="mode_random">Random Kart Generator</string>
     <string name="mode_builder">Kart Builder</string>
@@ -17,9 +17,16 @@
     <string name="table_wheels">Wheels: </string>
     <string name="table_glider">Glider: </string>
 
-    <string name="speed_abbreviated">S</string>
-    <string name="acceleration_abbreviated">A</string>
-    <string name="weight_abbreviated">W</string>
-    <string name="handling_abbreviated">H</string>
-    <string name="grip_abbreviated">G</string>
+    <string name="speed_abbreviated">Spd</string>
+    <string name="acceleration_abbreviated">Acc</string>
+    <string name="weight_abbreviated">Wei</string>
+    <string name="handling_abbreviated">Hnd</string>
+    <string name="grip_abbreviated">Grp</string>
+
+    <string name="speed">Speed</string>
+    <string name="acceleration">Acceleration</string>
+    <string name="weight">Weight</string>
+    <string name="handling">Handling</string>
+    <string name="grip">Grip</string>
+    <string name="title_activity_kart_builder" translatable="false">KartBuilderActivity</string>
 </resources>

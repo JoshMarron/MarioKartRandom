@@ -1,15 +1,14 @@
 package com.me.joshua.mariokartrandom;
+import android.util.SparseArray;
+
 import java.util.HashMap;
 import com.me.joshua.mariokartrandom.parts.*;
 
-/**
- * Created by Joshua on 04/04/2016.
- */
 public class PartsData
 {
-    static HashMap<Integer, Kart8Body> bodies;
-    static HashMap<Integer, Kart8Wheels> wheels;
-    static HashMap<Integer, Kart8Glider> gliders;
+    static SparseArray<Kart8Body> bodies;
+    static SparseArray<Kart8Wheels> wheels;
+    static SparseArray<Kart8Glider> gliders;
 
     private PartsData()
     {
@@ -18,7 +17,7 @@ public class PartsData
 
     public static void initialiseBodies()
     {
-        bodies = new HashMap<Integer, Kart8Body>();
+        bodies = new SparseArray<>();
         /**
          * Cars range from index 0 to index 22
          */
@@ -71,7 +70,7 @@ public class PartsData
 
     public static void initialiseWheels()
     {
-        wheels = new HashMap<Integer, Kart8Wheels>();
+        wheels = new SparseArray<>();
 
         /**
          * Wheels are indexed from 0 to 20
@@ -101,7 +100,7 @@ public class PartsData
 
     public static void initialiseGliders()
     {
-        gliders = new HashMap<Integer, Kart8Glider>();
+        gliders = new SparseArray<>();
         /**
          * Gliders are indexed from 0 to 13
          */

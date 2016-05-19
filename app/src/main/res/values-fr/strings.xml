@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mario Kart 8 Utility App</string>
+    <string name="mode_random">Karts aléatoires</string>
+    <string name="mode_recommend">Karts conseillés</string>
+    <string name="acceleration">Accéleration</string>
+    <string name="acceleration_abbreviated">Acc</string>
+    <string name="action_settings">Réglages</string>
+    <string name="grip">Traction</string>
+    <string name="grip_abbreviated">Trc</string>
+    <string name="handling">Maniabilité</string>
+    <string name="handling_abbreviated">Man</string>
+    <string name="mode_builder">Construire Kart</string>
+    <string name="num_players_1">1 joueur</string>
+    <string name="num_players_2">2 joueurs</string>
+    <string name="num_players_3">3 joueurs</string>
+    <string name="num_players_4">4 joueurs</string>
+    <string name="speed">Vitesse</string>
+    <string name="speed_abbreviated">Vit</string>
+    <string name="table_body">Chassis:</string>
+    <string name="table_glider">Planeur:</string>
+    <string name="table_wheels">Roues:</string>
+    <string name="title_activity_first_menu">hhihi</string>
+    <string name="title_activity_random_kart">Karts aléatoires</string>
+    <string name="title_activity_random_selected">Allocation de Karts</string>
+    <string name="weight">Poids</string>
+    <string name="weight_abbreviated">Pds</string>
+    <string name="welcome_message">Combien de joueurs?</string>
+</resources>
